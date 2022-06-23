@@ -12,7 +12,9 @@ data-template="vertical-menu-template-free">
     <title>@yield('title')</title>
 
     <!-- Favicon -->
+    @stack('before-style')
     @include('includes.style-admin')
+    @stack('after-style')
 
   </head>
 

@@ -3,7 +3,6 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\HomeController;
 use App\Http\Controllers\NotaController;
-use App\Http\Controllers\NotaDetailController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,8 +24,12 @@ Route::middleware(['auth'])->group(function(){
         Route::delete('/product/delete/{id}', 'destroy')->name('delete');
     });
 
-    Route::get('/nota-detail', [NotaController::class, 'index'])->name('nota-detail');
-    Route::get('/nota', [NotaController::class, 'create'])->name('create-nota');
+    Route::controller(NotaController::class)->group(function(){
+        Route::get('/nota-detail','index')->name('nota-detail');
+        Route::get('/nota','create')->name('create-nota');
+        Route::get('/print/{id}','print')->name('print');
+    });
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/forgot-password', [AuthController::class, 'v_forgot']);
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');

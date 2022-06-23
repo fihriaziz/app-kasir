@@ -41,30 +41,34 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Invoice : <span id="invoice"></span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>Sub Total</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbodyModal"></tbody>
-                        </table>
+                        <div class="content-print">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4"><h6 class="modal-title" id="exampleModalLabel">Invoice : <span id="invoice"></span></h6></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Sub Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbodyModal"></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Print</button>
-            </div>
+                <button id="print" class="btn btn-primary">Print</button>
+            </div>wkwk
         </div>
     </div>
 </div>
@@ -73,6 +77,7 @@
 <script>
     $(document).ready(function() {
         $('.showModal').on('click', function(){
+            $('#print').attr('data-print', $(this).data('id'));
             $.get('/api/getNota/' + $(this).data('id'), function(data){
                 $('#invoice').text(data.invoice);
                 var html = '';
@@ -90,6 +95,10 @@
                 html += '</tr>';
                 $('#tbodyModal').html(html);
             });
+        })
+
+        $('#print').on('click', function(){
+            window.open("{{url('print')}}/"+$(this).data('print'),"_blank");
         })
     });
 </script>

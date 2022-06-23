@@ -13,9 +13,9 @@ class NotaController extends Controller
     public function index(Request $req)
     {
         $notas = Nota::with(['details', 'details.product'])->get();
-        $byId = Nota::with(['details', 'details.product'])->where('id',$req->id)->first();
+        // $byId = Nota::with(['details', 'details.product'])->where('id',$req->id)->first();
         // dd($nota);
-        return view('nota.index', compact('notas', 'byId'));
+        return view('nota.index', compact('notas'));
     }
 
     public function create()
@@ -58,5 +58,12 @@ class NotaController extends Controller
     {
         $nota = Nota::with(['details', 'details.product'])->find($id);
         return response($nota);
+    }
+
+    public function print($id)
+    {
+        $notas = Nota::with(['details', 'details.product'])->find($id);
+        return view('nota.print', compact('notas'));
+        // return response($notas);
     }
 }
