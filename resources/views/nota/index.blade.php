@@ -68,7 +68,7 @@
             <div class="modal-footer d-flex justify-content-center">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button id="print" class="btn btn-primary">Print</button>
-            </div>wkwk
+            </div>
         </div>
     </div>
 </div>

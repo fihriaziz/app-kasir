@@ -132,4 +132,3 @@
     });
 </script>
 @endpush
-wkwkw di notes :v

@@ -36,7 +36,7 @@ class ProductController extends Controller
             'status'    => $req->status
         ]);
 
-        return redirect('/product/create');
+        return to_route('products');
     }
 
     public function edit($id)

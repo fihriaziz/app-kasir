@@ -51,7 +51,7 @@ class NotaController extends Controller
 
         // dd($notaDetails);
 
-        return to_route('create-nota');
+        return to_route('nota-detail');
     }
 
     public function show($id)

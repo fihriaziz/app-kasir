@@ -7,15 +7,14 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(AuthController::class)->group(function(){
-    Route::get('/login', 'v_login');
+    Route::get('/login', 'v_login')->middleware('guest');
     Route::post('/login', 'login')->name('login');
-    Route::get('/register', 'v_register');
+    Route::get('/register', 'v_register')->middleware('guest');
     Route::post('/register', 'register')->name('register');
 });
 
 Route::middleware(['auth'])->group(function(){
     Route::controller(ProductController::class)->group(function(){
-
         Route::get('/products', 'index')->name('products');
         Route::get('/product/create', 'create')->name('create-product');
         Route::post('/product/create', 'store')->name('store-product');
