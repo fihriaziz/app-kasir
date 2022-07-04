@@ -114,5 +114,6 @@
             <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
         </div>
     </form>
+    <a href="{{ url('/register') }}">Register</a>
 </div>
 @endsection
