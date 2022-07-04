@@ -45,8 +45,8 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="content-print">
+                    <div class="col-md-12 col-sm-6">
+                        <div class="table-responsive">
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
