@@ -19,7 +19,11 @@ class AuthController extends Controller
         $credentials = $req->only(['email', 'password']);
 
         if(Auth::attempt($credentials)) {
-            return to_route('dashboard');
+            if(Auth::user()->roles == 'kasir') {
+                return to_route('create-nota');
+            } else {
+                return to_route('dashboard');
+            }
         } else {
             return to_route('login');
         }
