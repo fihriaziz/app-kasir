@@ -24,10 +24,10 @@
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
                                         <td>{{ $product->name }}</td>
-                                        <td>{{ $product->price}}</td>
-                                        <td>{{$product->stock}}</td>
-                                        <td>{{$product->unit}}</td>
-                                        <td>{{$product->status == '0' ? 'Not Available' : 'Available'}}</td>
+                                        <td>{{ number_format($product->price) }}</td>
+                                        <td>{{ $product->stock }}</td>
+                                        <td>{{ $product->unit }}</td>
+                                        <td>{{ $product->status == '0' ? 'Not Available' : 'Available' }}</td>
                                         <td>
                                         <div class="dropdown">
                                             <button
