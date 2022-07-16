@@ -39,12 +39,12 @@
             <tr>
                 <td>{{ $nota->product->name }}</td>
                 <td>{{ $nota->qty }}</td>
-                <td>{{ $nota->product->price }}</td>
-                <td>{{ $nota->product->price * $nota->qty }}</td>
+                <td>{{ number_format($nota->product->price) }}</td>
+                <td>{{ number_format($nota->product->price * $nota->qty) }}</td>
             </tr>
             @endforeach
             <td colspan="3" class="text-center">Total</td>
-                <td>{{ $notas->subtotal}}</td>
+                <td>{{ number_format($notas->subtotal) }}</td>
         </tbody>
     </table>
  </body>
