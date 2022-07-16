@@ -22,7 +22,7 @@
                                 <span class="badge bg-primary">{{$detail->product->name}}</span>
                             @endforeach
                         </td>
-                        <td>{{ number_format($nota->subtotal) }}</td>
+                        <td>{{ number_format($nota->subtotal, 0, ",",".") }}</td>
                         <td>
                             <button type="button" data-id="{{$nota->id}}" class="btn btn-primary showModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Show

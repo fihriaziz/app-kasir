@@ -24,7 +24,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
                                         <td>{{ $product->name }}</td>
-                                        <td>{{ number_format($product->price) }}</td>
+                                        <td>{{ number_format($product->price, 0, ",",".") }}</td>
                                         <td>{{ $product->stock }}</td>
                                         <td>{{ $product->unit }}</td>
                                         <td>{{ $product->status == '0' ? 'Not Available' : 'Available' }}</td>
