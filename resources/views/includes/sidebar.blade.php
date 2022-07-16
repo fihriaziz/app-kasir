@@ -56,7 +56,7 @@
             </g>
           </svg>
         </span>
-        <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+        <span class="app-brand-text demo menu-text fw-bolder ms-2">{{ env('APP_NAME') }}</span>
       </a>
 
       <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -68,63 +68,28 @@
 
     <ul class="menu-inner py-1">
 
-      <li class="menu-item active">
-        <a href="index.html" class="menu-link">
+      <li class="menu-item {{ (request()->routeIs('dashboard*')) ? 'active' : '' }}">
+        <a href="{{ route('dashboard')}}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Dashboard</div>
         </a>
       </li>
 
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">Layouts</div>
-        </a>
-
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="layouts-without-menu.html" class="menu-link">
-              <div data-i18n="Without menu">Without menu</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="layouts-without-navbar.html" class="menu-link">
-              <div data-i18n="Without navbar">Without navbar</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="layouts-container.html" class="menu-link">
-              <div data-i18n="Container">Container</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="layouts-fluid.html" class="menu-link">
-              <div data-i18n="Fluid">Fluid</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="layouts-blank.html" class="menu-link">
-              <div data-i18n="Blank">Blank</div>
-            </a>
-          </li>
-        </ul>
-      </li>
-
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Pages</span>
       </li>
-      <li class="menu-item">
+      <li class="menu-item {{ (request()->is('nota*')) ? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-cube-alt"></i>
           <div data-i18n="Misc">Nota</div>
         </a>
         <ul class="menu-sub">
-        <li class="menu-item">
+        <li class="menu-item {{ (request()->routeIs('create-nota*')) ? 'active' : '' }}">
             <a href="{{ route('create-nota') }}" class="menu-link">
                 <div data-i18n="Nota">Create Nota</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{ (request()->routeIs('nota-detail*')) ? 'active' : '' }}">
             <a href="{{ route('nota-detail') }}" class="menu-link">
                 <div data-i18n="Nota">Nota Detail</div>
             </a>
@@ -132,18 +97,18 @@
         </ul>
       </li>
       @if (auth()->user()->roles == 'admin')
-      <li class="menu-item">
+      <li class="menu-item {{ (request()->is('product*')) ? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-cube-alt"></i>
           <div data-i18n="Misc">Product</div>
         </a>
         <ul class="menu-sub">
-        <li class="menu-item">
+        <li class="menu-item {{ (request()->routeIs('products*')) ? 'active' : '' }}">
             <a href="{{ route('products') }}" class="menu-link">
                 <div data-i18n="Products">Product Page</div>
             </a>
         </li>
-           <li class="menu-item">
+           <li class="menu-item {{ (request()->routeIs('create-product')) ? 'active' : '' }}">
             <a href="{{ route('create-product') }}" class="menu-link">
               <div data-i18n="Create Product">Create Product</div>
             </a>
