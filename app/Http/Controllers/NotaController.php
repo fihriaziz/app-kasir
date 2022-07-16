@@ -12,7 +12,7 @@ class NotaController extends Controller
 
     public function index(Request $req)
     {
-        $notas = Nota::with(['details', 'details.product'])->get();
+        $notas = Nota::with(['details', 'details.product'])->orderBy('id','DESC')->get();
         // $byId = Nota::with(['details', 'details.product'])->where('id',$req->id)->first();
         // dd($nota);
         return view('nota.index', compact('notas'));
