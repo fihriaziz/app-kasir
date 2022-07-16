@@ -125,7 +125,7 @@
             },
             function(response){
                 alert("Data has been saved");
-                window.location.href = "{{ url('/nota') }}";
+                window.location.href = "{{ url('/nota-detail') }}";
             })
         })
 

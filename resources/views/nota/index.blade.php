@@ -22,7 +22,7 @@
                                 <span class="badge bg-primary">{{$detail->product->name}}</span>
                             @endforeach
                         </td>
-                        <td>{{ $nota->subtotal }}</td>
+                        <td>{{ number_format($nota->subtotal) }}</td>
                         <td>
                             <button type="button" data-id="{{$nota->id}}" class="btn btn-primary showModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Show
@@ -85,13 +85,13 @@
                     html += '<tr>';
                     html += '<td>' + value.product.name + '</td>';
                     html += '<td>' + value.qty + '</td>';
-                    html += '<td>' + value.product.price + '</td>';
-                    html += '<td>' + value.qty * value.product.price + '</td>';
+                    html += '<td>' + Intl.NumberFormat('IDN', {currency: 'IDR'}).format(value.product.price) + '</td>';
+                    html += '<td>' + Intl.NumberFormat('IDN', {currency: 'IDR'}).format(value.qty * value.product.price) + '</td>';
                     html += '</tr>';
                 });
                 html += '<tr>';
                 html += '<td colspan="3" class="text-center">Total</td>';
-                html += '<td>' + data.subtotal + '</td>';
+                html += '<td>' + Intl.NumberFormat('IDN', {currency: 'IDR'}).format(data.subtotal) + '</td>';
                 html += '</tr>';
                 $('#tbodyModal').html(html);
             });
@@ -99,6 +99,7 @@
 
         $('#print').on('click', function(){
             window.open("{{url('print')}}/"+$(this).data('print'),"_blank");
+            // $('.showModal').removeClass('btn-primary') && $('.showModal').addClass('btn-success');
         })
     });
 </script>
