@@ -14,22 +14,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($notas as $nota)
-                    <tr>
-                        <td>{{ $nota->invoice }}</td>
-                        <td>
-                            @foreach ( $nota->details as $detail)
-                                <span class="badge bg-primary">{{$detail->product->name}}</span>
-                            @endforeach
-                        </td>
-                        <td>{{ number_format($nota->subtotal, 0, ",",".") }}</td>
-                        <td>
-                            <button type="button" data-id="{{$nota->id}}" class="btn btn-primary showModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Show
-                              </button>
-                        </td>
-                    </tr>
-                    @endforeach
+                    @forelse ($notas as $nota)
+                        <tr>
+                            <td>{{ $nota->invoice }}</td>
+                            <td>
+                                @foreach ( $nota->details as $detail)
+                                    <span class="badge bg-primary">{{$detail->product->name}}</span>
+                                @endforeach
+                            </td>
+                            <td>{{ number_format($nota->subtotal, 0, ",",".") }}</td>
+                            <td>
+                                <button type="button" data-id="{{$nota->id}}" class="btn btn-primary showModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Show
+                                </button>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td class="text-center fw-bold text-danger" colspan="4">Data Not Found</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
