@@ -17,6 +17,7 @@
                                         <th>Stock</th>
                                         <th>Unit</th>
                                         <th>Status</th>
+                                        <th>*</th>
                                         </tr>
                                 </thead>
                             @foreach ($products as $product)
@@ -29,22 +30,22 @@
                                         <td>{{ $product->unit }}</td>
                                         <td>{{ $product->status == '0' ? 'Not Available' : 'Available' }}</td>
                                         <td>
-                                        <div class="dropdown">
-                                            <button
-                                            type="button"
-                                            class="btn p-0 dropdown-toggle hide-arrow"
-                                            data-bs-toggle="dropdown"
-                                            >
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('edit', $product->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                            <form action="{{ route('delete', $product->id) }}" class="d-inline" method="POST">
-                                            @csrf @method('DELETE')
-                                            <button type="submit" class="dropdown-item"><i class="bx bx-trash me-1"></i>Delete</button>
-                                            </form>
+                                            <div class="dropdown">
+                                                <button
+                                                type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow"
+                                                data-bs-toggle="dropdown"
+                                                >
+                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="{{ route('edit', $product->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                <form action="{{ route('delete', $product->id) }}" class="d-inline" method="POST">
+                                                @csrf @method('DELETE')
+                                                <button type="submit" class="dropdown-item"><i class="bx bx-trash me-1"></i>Delete</button>
+                                                </form>
+                                                </div>
                                             </div>
-                                        </div>
                                         </td>
                                     </tr>
                                 </tbody>
