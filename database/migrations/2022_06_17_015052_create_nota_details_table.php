@@ -17,10 +17,11 @@ return new class extends Migration
     {
         Schema::create('nota_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Nota::class);
+            $table->unsignedBigInteger('nota_id');
             $table->foreignIdFor(Product::class);
             $table->string('qty');
             $table->timestamps();
+            $table->foreign('nota_id')->references('id')->on('notas')->onDelete('cascade');
         });
     }
 

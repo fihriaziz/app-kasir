@@ -66,4 +66,11 @@ class NotaController extends Controller
         return view('nota.print', compact('notas'));
         // return response($notas);
     }
+
+    public function destroy($id)
+    {
+        $nota = Nota::with('details')->find($id);
+        $nota->delete();
+        return back();
+    }
 }

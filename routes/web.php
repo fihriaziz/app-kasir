@@ -27,9 +27,11 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/nota-detail','index')->name('nota-detail');
         Route::get('/nota','create')->name('create-nota');
         Route::get('/print/{id}','print')->name('print');
+        Route::delete('/nota/delete/{id}', 'destroy')->name('destroy');
     });
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/forgot-password', [AuthController::class, 'v_forgot']);
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+
 });

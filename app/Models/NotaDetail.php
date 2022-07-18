@@ -15,4 +15,9 @@ class NotaDetail extends Model
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
+
+    public function nota()
+    {
+        return $this->belongsTo(Nota::class);
+    }
 }
