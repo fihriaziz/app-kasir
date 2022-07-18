@@ -27,6 +27,10 @@
                                 <button type="button" data-id="{{$nota->id}}" class="btn btn-primary showModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Show
                                 </button>
+                                <form action="{{ route('destroy', $nota->id) }}" method="post" class="d-inline">
+                                    @csrf @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">DELETE</button>
+                                </form>
                             </td>
                         </tr>
                     @empty
