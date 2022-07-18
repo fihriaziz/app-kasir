@@ -22,10 +22,11 @@ class ProductController extends Controller
     public function store(Request $req)
     {
         $this->validate($req, [
-            'name'  => 'required',
-            'price' => 'required',
-            'stock' => 'required',
-            'unit'  => 'required',
+            'name'      => 'required',
+            'price'     => 'required',
+            'stock'     => 'required',
+            'unit'      => 'required',
+            'status'    => 'required'
         ]);
 
         Product::create([
@@ -48,17 +49,18 @@ class ProductController extends Controller
     public function update(Request $req, $id)
     {
         $this->validate($req, [
-            'name'  => 'required',
-            'price' => 'required',
-            'stock' => 'required',
-            'unit'  => 'required',
+            'name'      => 'required',
+            'price'     => 'required',
+            'stock'     => 'required',
+            'unit'      => 'required',
         ]);
 
         $product = Product::find($id);
-        $product->name  = $req->name;
-        $product->price = $req->price;
-        $product->stock = $req->stock;
-        $product->unit  = $req->unit;
+        $product->name   = $req->name;
+        $product->price  = $req->price;
+        $product->stock  = $req->stock;
+        $product->unit   = $req->unit;
+        $product->status = $req->status;
         $product->save();
 
         return to_route('products');
