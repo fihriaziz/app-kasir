@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\HomeController;
 use App\Http\Controllers\NotaController;
+use App\Http\Controllers\NotaDetailController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +34,5 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/forgot-password', [AuthController::class, 'v_forgot']);
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-
+    Route::get('/nota/print', [NotaDetailController::class, 'cetakPdf']);
 });

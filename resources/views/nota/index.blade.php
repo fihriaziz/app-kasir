@@ -4,6 +4,7 @@
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-md-12">
+            <a href="{{ url('/nota/print') }}" class="btn mb-3 btn-warning" target="_blank">Print</a>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
