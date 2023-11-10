@@ -93,7 +93,7 @@
                                 })
                                 $("#subTotal").html(`
                                     <tr>
-                                        <td>${new Intl.NumberFormat('IDN', {currency: 'IDR' }).format(subTotal)}</td>
+                                        <td>Rp. ${new Intl.NumberFormat('IDN', {currency: 'IDR' }).format(subTotal)}</td>
                                     </tr>`
                                 )
                                 $("#subTotalTmp").val(subTotal);
