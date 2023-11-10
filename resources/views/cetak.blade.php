@@ -40,7 +40,7 @@
                @foreach ($nota->details as $item)
                 <td>{{ $item->product->name }}</td>
                 <td>{{ number_format($item->qty) }}</td>
-                <td>{{ number_format($item->product->price * $item->qty, 0, ",",".") }}</td>
+                <td>{{ number_format($item->product->price, 0, ",",".") }}</td>
                 <td>{{ number_format($nota->subtotal, 0, ",",".") }}</td>
                @endforeach
            </tr>
