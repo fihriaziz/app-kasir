@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-            <div class="mt-3 text-center">
+            <div class="d-flex justify-content-evenly mt-3 text-center">
                 <button type="submit" class="btn btn-primary">Save</button>
                 <button type="reset" class="btn btn-danger">Reset</button>
             </div>
