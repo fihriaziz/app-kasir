@@ -91,18 +91,18 @@
                 $('#invoice').text(data.invoice);
                 var html = '';
                 $.each(data.details, function(index, value){
-                    html += '<tr>';
-                    html += '<td>' + value.product.name + '</td>';
-                    html += '<td>' + value.qty + '</td>';
-                    html += '<td>' + Intl.NumberFormat('IDN', {currency: 'IDR'}).format(value.product.price) + '</td>';
-                    html += '<td>' + Intl.NumberFormat('IDN', {currency: 'IDR'}).format(value.qty * value.product.price) + '</td>';
-                    html += '</tr>';
-                });
-                html += '<tr>';
-                html += '<td colspan="3" class="text-center">Total</td>';
-                html += '<td>' + Intl.NumberFormat('IDN', {currency: 'IDR'}).format(data.subtotal) + '</td>';
-                html += '</tr>';
-                $('#tbodyModal').html(html);
+                    html += `<tr>
+                                <td>  ${value.product.name} </td>
+                                <td>  ${value.qty} </td>
+                                <td> ${Intl.NumberFormat('IDN', {currency: 'IDR'}).format(value.product.price)} </td>
+                                <td> ${Intl.NumberFormat('IDN', {currency: 'IDR'}).format(value.qty * value.product.price)} </td>
+                         </tr>`;
+                    });
+                    html += `<tr>
+                                <td colspan="3" class="text-center">Total</td>;
+                                <td> ${Intl.NumberFormat('IDN', {currency: 'IDR'}).format(data.subtotal)} </td>;
+                            </tr>`;
+                    $('#tbodyModal').html(html);
             });
         })
 
