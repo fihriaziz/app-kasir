@@ -31,7 +31,10 @@
         <table>
             <thead>
                 <tr>
-                    <th colspan="4">
+                    <th>
+                        <img src="https://desagirikarto.gunungkidulkab.go.id/assets/files/artikel/sedang_1601063087canting2.jpg" width="90" height="60px">
+                    </th>
+                    <th colspan="3">
                         <h3>Invoice : {{ $notas->invoice }} </h3>
                     </th>
                 </tr>
