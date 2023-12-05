@@ -68,7 +68,7 @@
 
     <ul class="menu-inner py-1">
 
-      <li class="menu-item {{ (request()->routeIs('dashboard*')) ? 'active' : '' }}">
+      <li class="menu-item {{ (request()->routeIs('dashboard*')) ? 'active open' : '' }}">
         <a href="{{ route('dashboard')}}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Dashboard</div>
@@ -78,18 +78,18 @@
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Pages</span>
       </li>
-      <li class="menu-item {{ (request()->is('nota*')) ? 'active' : '' }}">
+      <li class="menu-item {{ (request()->is('nota*')) ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-cube-alt"></i>
           <div data-i18n="Misc">Nota</div>
         </a>
         <ul class="menu-sub">
-        <li class="menu-item {{ (request()->routeIs('create-nota*')) ? 'active' : '' }}">
+        <li class="menu-item {{ (request()->routeIs('create-nota*')) ? 'active open' : '' }}">
             <a href="{{ route('create-nota') }}" class="menu-link">
                 <div data-i18n="Nota">Create Nota</div>
             </a>
         </li>
-        <li class="menu-item {{ (request()->routeIs('nota-detail*')) ? 'active' : '' }}">
+        <li class="menu-item {{ (request()->routeIs('nota-detail*')) ? 'active open' : '' }}">
             <a href="{{ route('nota-detail') }}" class="menu-link">
                 <div data-i18n="Nota">Nota Detail</div>
             </a>
@@ -97,23 +97,22 @@
         </ul>
       </li>
       @if (auth()->user()->roles == 'admin')
-      <li class="menu-item {{ (request()->is('product*')) ? 'active' : '' }}">
+      <li class="menu-item {{ (request()->is('product*')) ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-cube-alt"></i>
           <div data-i18n="Misc">Product</div>
         </a>
         <ul class="menu-sub">
-        <li class="menu-item {{ (request()->routeIs('products*')) ? 'active' : '' }}">
+        <li class="menu-item {{ (request()->routeIs('products*')) ? 'active open' : '' }}">
             <a href="{{ route('products') }}" class="menu-link">
                 <div data-i18n="Products">Product Page</div>
             </a>
         </li>
-           <li class="menu-item {{ (request()->routeIs('create-product')) ? 'active' : '' }}">
+           <li class="menu-item {{ (request()->routeIs('create-product')) ? 'active open' : '' }}">
             <a href="{{ route('create-product') }}" class="menu-link">
               <div data-i18n="Create Product">Create Product</div>
             </a>
           </li>
-
         </ul>
       </li>
       @endif
