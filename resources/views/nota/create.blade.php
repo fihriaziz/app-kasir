@@ -57,6 +57,8 @@
 <script>
     $(function() {
         $('#save').hide();
+        let invoice = new Date().toLocaleDateString() + '-' + Math.floor(Math.random() * 99999999)
+        $('#inv').html(`INV - ${invoice}`);
 
         $.get("{{ url('/api/getProductByName') }}", function(response){
             $("#name").autocomplete({
@@ -78,9 +80,8 @@
                             alert("Produk tidak tersedia");
                             $('#save').hide();
                         } else {
-                            $('#inv').html(`INV - ${new Date().toLocaleDateString()} - ${Math.floor(Math.random() * 99999999) }`);
                             $("#tbody").prepend(`
-                                <tr class="menu-list" data-id="${r.id}" data-invoice="INV-${new Date().toLocaleDateString()}-${Math.floor(Math.random() * 99999999) }"
+                                <tr class="menu-list" data-id="${r.id}" data-invoice="INV - ${invoice}"
                                 data-qty="${$('#qty').val()}">
                                     <td>${r.name}</td>
                                     <td>${Number($("#qty").val())}</td>
