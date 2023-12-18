@@ -17,7 +17,7 @@
 
             table {
                 border-collapse: collapse;
-                width: 43%
+                width: 60%
             }
 
             th, td {
